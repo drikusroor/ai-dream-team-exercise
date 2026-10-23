@@ -133,6 +133,24 @@ jobs:
           keyphrase: status
           case-sensitive: false
 
+      - name: Check rendered owner field
+        id: check-owner-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: owner
+          case-sensitive: false
+
+      - name: Check rendered progress field
+        id: check-progress-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: progress
+          case-sensitive: false
+
       - name: Check rendered activity field
         id: check-activity-markup
         continue-on-error: true
@@ -149,6 +167,15 @@ jobs:
         with:
           text-file: app/index.html
           keyphrase: priority
+          case-sensitive: false
+
+      - name: Check rendered upcoming milestone field
+        id: check-milestone-markup
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/index.html
+          keyphrase: upcomingMilestone
           case-sensitive: false
 
       - name: Check dashboard styling language
@@ -241,6 +268,24 @@ jobs:
           keyphrase: priority
           case-sensitive: false
 
+      - name: Check project progress data
+        id: check-progress-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: progress
+          case-sensitive: false
+
+      - name: Check upcoming milestone data
+        id: check-milestone-data
+        continue-on-error: true
+        uses: skills/action-keyphrase-checker@v2
+        with:
+          text-file: app/project-data.json
+          keyphrase: upcomingMilestone
+          case-sensitive: false
+
       - name: Check project data JSON
         id: check-json
         continue-on-error: true
@@ -291,11 +336,11 @@ jobs:
               - description: "Checked Project Pulse dashboard content"
                 passed: ${{ steps.check-project-pulse.outcome == 'success' && steps.check-styles-reference.outcome == 'success' && steps.check-data-reference.outcome == 'success' && steps.check-dashboard-styles.outcome == 'success' && steps.check-projects-data.outcome == 'success' }}
               - description: "Checked that the dashboard renders project cards"
-                passed: ${{ steps.check-project-card-markup.outcome == 'success' && steps.check-status-markup.outcome == 'success' && steps.check-activity-markup.outcome == 'success' && steps.check-priority-markup.outcome == 'success' }}
+                passed: ${{ steps.check-project-card-markup.outcome == 'success' && steps.check-status-markup.outcome == 'success' && steps.check-owner-markup.outcome == 'success' && steps.check-progress-markup.outcome == 'success' && steps.check-activity-markup.outcome == 'success' && steps.check-priority-markup.outcome == 'success' && steps.check-milestone-markup.outcome == 'success' }}
               - description: "Checked for polished project card styling"
                 passed: ${{ steps.check-project-card-styles.outcome == 'success' && steps.check-border-radius.outcome == 'success' && steps.check-box-shadow.outcome == 'success' }}
-              - description: "Checked project data includes name, owner, status, recent activity, and priority"
-                passed: ${{ steps.check-name-data.outcome == 'success' && steps.check-owner-data.outcome == 'success' && steps.check-status-data.outcome == 'success' && steps.check-activity-data.outcome == 'success' && steps.check-priority-data.outcome == 'success' }}
+              - description: "Checked project data includes name, owner, health, progress, activity, priority, and milestone"
+                passed: ${{ steps.check-name-data.outcome == 'success' && steps.check-owner-data.outcome == 'success' && steps.check-status-data.outcome == 'success' && steps.check-activity-data.outcome == 'success' && steps.check-priority-data.outcome == 'success' && steps.check-progress-data.outcome == 'success' && steps.check-milestone-data.outcome == 'success' }}
               - description: "Checked that project-data.json parses as JSON"
                 passed: ${{ steps.check-json.outcome == 'success' }}
               - description: "Checked that .vscode/launch.json parses as JSON"

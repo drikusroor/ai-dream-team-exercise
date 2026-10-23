@@ -5,10 +5,11 @@ Mona's team needs a lightweight Project Pulse dashboard for contributors.
 The dashboard should help the team quickly understand:
 
 - which projects are active
+- each project's health/status and priority or risk level
 - who owns each project
-- each project's current status
+- each project's progress
 - recent activity
-- priority or risk level
+- the next upcoming milestone and its due date
 - a short contributor-friendly summary
 - a polished visual layout with project cards, status badges, and readable spacing
 
@@ -26,9 +27,11 @@ Use a top-level `projects` array in `app/project-data.json`. Each project should
 
 - `name`
 - `owner`
-- `status`
+- `status` (project health, such as On track, At risk, or Blocked)
+- `progress` (a percentage from 0 to 100)
 - `recentActivity`
 - `priority`
+- `upcomingMilestone` (an object with a milestone `name` and `dueDate`)
 
 Use the custom agents in `.github/agents/`:
 

@@ -27,8 +27,9 @@ By the end of this exercise, learners will be able to:
    - Designer: Gemini 3.7 Flash
 1. Use GitHub Copilot CLI in a Codespace terminal as the primary interface.
 1. Ask the Orchestrator to involve the Planner before implementation.
+1. Ask the Designer to define dashboard hierarchy, readable project cards, and accessible ways to show health and progress.
 1. Separate design work from coding work.
-1. Build a small static dashboard with HTML, CSS, and JSON.
+1. Build a small static dashboard with HTML, CSS, and JSON that shows ownership, activity, and upcoming milestones.
 1. Validate the dashboard and write a final Orchestrator handoff.
 
 ## Prerequisites
@@ -71,7 +72,7 @@ The dev container should:
 
 ## Story
 
-Mona's team needs a lightweight **Project Pulse** dashboard that shows project names, owners, status, recent activity, priorities, and contributor-friendly summaries. The learner will use GitHub Copilot CLI and custom agents to orchestrate the work: Planner creates the plan, Designer guides the experience, Coder builds the static files, and Orchestrator validates and reports the final runnable dashboard.
+Mona's team needs a lightweight **Project Pulse** dashboard that shows project names, health/status, progress, owners, recent activity, priorities, upcoming milestones, and contributor-friendly summaries. The learner will use GitHub Copilot CLI and custom agents to orchestrate the work: Planner creates the plan, Designer guides the experience, Coder builds the static files, and Orchestrator validates and reports the final runnable dashboard.
 
 ## Step 1: Meet the agent team
 
@@ -150,9 +151,9 @@ The Orchestrator coordinates the build by assigning experience decisions to Desi
 
 - `app/index.html`, `app/styles.css`, and `app/project-data.json` exist.
 - `app/index.html` includes Project Pulse and references `styles.css` and `project-data.json`.
-- `app/index.html` renders project cards with status, recent activity, and priority.
+- `app/index.html` renders project cards with health/status, progress, owner, recent activity, priority, and upcoming milestone.
 - `app/styles.css` includes `.dashboard`, `.project-card`, `border-radius`, and `box-shadow`.
-- `app/project-data.json` parses as JSON and includes `projects`, `owner`, `status`, `recentActivity`, and `priority`.
+- `app/project-data.json` parses as JSON and includes `projects`, `owner`, `status`, `progress`, `recentActivity`, `priority`, and `upcomingMilestone`.
 - `.vscode/launch.json` exists and includes **Run Project Pulse Dashboard** and `index.html`.
 
 ## Step 4: Validate and hand off
