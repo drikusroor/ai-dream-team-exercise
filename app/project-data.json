@@ -1,0 +1,59 @@
+{
+  "lastUpdated": "2026-10-26",
+  "projects": [
+    {
+      "id": "docs-refresh",
+      "name": "Contributor Docs Refresh",
+      "owner": "Mona Lisa",
+      "status": "On track",
+      "recentActivity": "Merged the new getting-started guide and setup checklist on Oct 24.",
+      "priority": "High",
+      "summary": "Rewriting the contributor docs so new folks can make their first change in under an hour."
+    },
+    {
+      "id": "ci-speedup",
+      "name": "CI Pipeline Speedup",
+      "owner": "Hubot",
+      "status": "At risk",
+      "recentActivity": "Test caching cut build time by 30%, but flaky integration tests are slowing the rollout.",
+      "priority": "High",
+      "summary": "Making pull request checks faster so reviewers get feedback in minutes, not hours."
+    },
+    {
+      "id": "design-tokens",
+      "name": "Design Tokens Migration",
+      "owner": "Ada Okafor",
+      "status": "Blocked",
+      "recentActivity": "Waiting on the brand team to approve the updated color palette.",
+      "priority": "Medium",
+      "summary": "Moving shared colors and spacing into one token set so every app looks consistent."
+    },
+    {
+      "id": "accessibility-audit",
+      "name": "Accessibility Audit",
+      "owner": "Priya Raman",
+      "status": "On track",
+      "recentActivity": "Fixed 12 of 18 contrast and keyboard issues found in the dashboard pages.",
+      "priority": "Medium",
+      "summary": "Checking every page against WCAG AA so the tools work well for everyone."
+    },
+    {
+      "id": "release-notes-bot",
+      "name": "Release Notes Bot",
+      "owner": "Diego Martins",
+      "status": "Completed",
+      "recentActivity": "Shipped v1.0 and published the first automated release notes on Oct 20.",
+      "priority": "Low",
+      "summary": "A small bot that drafts release notes from merged pull requests, now live for all repos."
+    },
+    {
+      "id": "issue-triage",
+      "name": "Issue Triage Playbook",
+      "owner": "Sam Chen",
+      "status": "At risk",
+      "recentActivity": "Draft labels are ready, but only two maintainers have reviewed the playbook so far.",
+      "priority": "Low",
+      "summary": "A simple guide for sorting new issues so good first issues are easy to find."
+    }
+  ]
+}
